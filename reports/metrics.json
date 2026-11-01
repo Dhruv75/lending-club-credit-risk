@@ -1,6 +1,6 @@
 {
   "synthetic": false,
-  "generated_at": "2026-11-01 10:41 UTC",
+  "generated_at": "2026-11-01 11:19 UTC",
   "config": {
     "raw_path": "C:\\Users\\DHRUV\\webd\\lending-club-credit-risk\\data\\raw\\accepted_2007_to_2018Q4.csv.gz",
     "processed_dir": "C:\\Users\\DHRUV\\webd\\lending-club-credit-risk\\data\\processed",
@@ -689,5 +689,5 @@
     "score": "figures/score_distribution.png",
     "leakage": "figures/leakage.png"
   },
-  "runtime_seconds": 114.8
+  "runtime_seconds": 89.9
 }

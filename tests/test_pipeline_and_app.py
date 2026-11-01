@@ -55,3 +55,17 @@ def test_streamlit_app_renders(pipeline_run, cfg, monkeypatch):
     assert not at.exception
     labels = [m.label for m in at.metric]
     assert "Probability of default" in labels and "Decision" in labels
+
+
+def test_saved_config_has_no_os_specific_paths():
+    """A model trained on Windows must load on Linux (Streamlit Cloud): no WindowsPath in the pickle."""
+    import pickle
+    from pathlib import Path, PureWindowsPath
+
+    from creditrisk.config import Config
+
+    cfg = Config(models_dir=PureWindowsPath(r"C:\Users\x\models"))
+    blob = pickle.dumps(cfg)
+    assert b"WindowsPath" not in blob and b"PosixPath" not in blob
+    back = pickle.loads(blob)
+    assert isinstance(back.models_dir, Path) and back.term_months == cfg.term_months

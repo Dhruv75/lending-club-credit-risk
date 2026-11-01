@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, replace
-from pathlib import Path
+from pathlib import Path, PurePath
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -57,3 +57,15 @@ class Config:
     def with_overrides(self, **kwargs) -> Config:
         """Return a copy with every non-None keyword applied."""
         return replace(self, **{k: v for k, v in kwargs.items() if v is not None})
+
+    # Saved models keep a copy of the config. Store paths as plain text, so a model trained on
+    # Windows (WindowsPath) can still be loaded on Linux, e.g. on Streamlit Cloud.
+    def __getstate__(self) -> dict:
+        return {k: (str(v) if isinstance(v, PurePath) else v) for k, v in self.__dict__.items()}
+
+    def __setstate__(self, state: dict) -> None:
+        for k, v in state.items():
+            object.__setattr__(self, k, Path(v) if k in PATH_FIELDS else v)
+
+
+PATH_FIELDS = ("raw_path", "processed_dir", "models_dir", "reports_dir")

@@ -1,6 +1,6 @@
 # Model card: Lending Club probability-of-default model
 
-Generated 2026-11-01 10:41 UTC from `accepted_2007_to_2018Q4.csv` in 115s.
+Generated 2026-11-01 11:19 UTC from `accepted_2007_to_2018Q4.csv` in 90s.
 
 ## 1. Population
 
