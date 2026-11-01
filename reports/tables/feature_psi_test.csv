@@ -1,0 +1,22 @@
+feature,psi,status
+verification_status,0.11534038963029751,moderate shift
+mths_since_last_record,0.09469724623616362,stable
+dti,0.067831608768914,stable
+inq_last_6mths,0.06690228388416891,stable
+purpose,0.04895149693140762,stable
+pub_rec,0.04080824944759631,stable
+credit_history_months,0.03142460184400337,stable
+pub_rec_bankruptcies,0.03053261816366646,stable
+mths_since_last_delinq,0.026097322567856178,stable
+open_acc,0.025861229108080322,stable
+revol_util,0.023839194341144156,stable
+fico,0.023333627695969295,stable
+emp_length_years,0.02163456743598781,stable
+loan_amnt,0.014565379499636277,stable
+delinq_2yrs,0.013646722631909126,stable
+home_ownership,0.008411497703879223,stable
+revol_bal,0.00724564020123068,stable
+annual_inc,0.006594155686744075,stable
+revol_bal_to_income,0.004263927091221394,stable
+loan_to_income,0.002623265765161484,stable
+total_acc,0.002512003435564295,stable

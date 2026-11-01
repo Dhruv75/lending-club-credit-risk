@@ -1,0 +1,22 @@
+feature,iv,status
+fico,0.13260701608201253,used
+annual_inc,0.08922416663419762,used
+loan_to_income,0.04007175766418918,used
+inq_last_6mths,0.03528132126244768,used
+dti,0.03499581979537134,used
+home_ownership,0.03237136411884585,used
+revol_util,0.028561592791803574,used
+credit_history_months,0.01970448370895765,IV 0.020 below 0.02 (no useful signal)
+purpose,0.01675829695588893,IV 0.017 below 0.02 (no useful signal)
+emp_length_years,0.014897568442772267,IV 0.015 below 0.02 (no useful signal)
+revol_bal,0.013518913110243254,IV 0.014 below 0.02 (no useful signal)
+total_acc,0.012240109991424447,IV 0.012 below 0.02 (no useful signal)
+revol_bal_to_income,0.00847062749352125,IV 0.008 below 0.02 (no useful signal)
+loan_amnt,0.005900337454763241,IV 0.006 below 0.02 (no useful signal)
+pub_rec_bankruptcies,0.005759944648615424,IV 0.006 below 0.02 (no useful signal)
+mths_since_last_record,0.0024575930864233772,IV 0.002 below 0.02 (no useful signal)
+verification_status,0.00179058308102731,IV 0.002 below 0.02 (no useful signal)
+mths_since_last_delinq,0.0014470161315673405,IV 0.001 below 0.02 (no useful signal)
+pub_rec,0.0011820418738281134,IV 0.001 below 0.02 (no useful signal)
+delinq_2yrs,0.000895083499564583,IV 0.001 below 0.02 (no useful signal)
+open_acc,0.00024425587928746426,IV 0.000 below 0.02 (no useful signal)

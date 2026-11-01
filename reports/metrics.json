@@ -1,0 +1,693 @@
+{
+  "synthetic": false,
+  "generated_at": "2026-11-01 10:41 UTC",
+  "config": {
+    "raw_path": "C:\\Users\\DHRUV\\webd\\lending-club-credit-risk\\data\\raw\\accepted_2007_to_2018Q4.csv.gz",
+    "processed_dir": "C:\\Users\\DHRUV\\webd\\lending-club-credit-risk\\data\\processed",
+    "models_dir": "C:\\Users\\DHRUV\\webd\\lending-club-credit-risk\\models",
+    "reports_dir": "C:\\Users\\DHRUV\\webd\\lending-club-credit-risk\\reports",
+    "term_months": 36,
+    "snapshot_date": "2018-12-31",
+    "start_date": "2007-01-01",
+    "train_end": "2014-07-01",
+    "valid_end": "2015-01-01",
+    "test_end": "2016-01-01",
+    "max_missing_rate": 0.3,
+    "max_missing_shift": 0.1,
+    "n_bins": 10,
+    "min_bin_share": 0.05,
+    "min_iv": 0.02,
+    "suspicious_iv": 0.5,
+    "max_woe_corr": 0.7,
+    "base_score": 600,
+    "base_odds": 50.0,
+    "pdo": 20,
+    "learning_rate": 0.05,
+    "num_leaves": 31,
+    "min_child_samples": 200,
+    "n_estimators": 2000,
+    "early_stopping_rounds": 100,
+    "n_bootstrap": 200,
+    "random_state": 42
+  },
+  "funnel": {
+    "all_loans": 2260668,
+    "term_ok": 1609754,
+    "matured": 621169,
+    "resolved": 621022,
+    "absent_columns": [],
+    "source_file": "accepted_2007_to_2018Q4.csv"
+  },
+  "splits": {
+    "train": {
+      "start": "2007-01-01",
+      "end": "2014-07-01",
+      "n": 247381,
+      "default_rate": 0.12802923425808774
+    },
+    "valid": {
+      "start": "2014-07-01",
+      "end": "2015-01-01",
+      "n": 90615,
+      "default_rate": 0.141256966285935
+    },
+    "test": {
+      "start": "2015-01-01",
+      "end": "2016-01-01",
+      "n": 283026,
+      "default_rate": 0.14886264866125373
+    }
+  },
+  "features": {
+    "candidates": 25,
+    "after_availability": [
+      "loan_amnt",
+      "annual_inc",
+      "loan_to_income",
+      "dti",
+      "fico",
+      "credit_history_months",
+      "inq_last_6mths",
+      "delinq_2yrs",
+      "mths_since_last_delinq",
+      "mths_since_last_record",
+      "pub_rec",
+      "pub_rec_bankruptcies",
+      "open_acc",
+      "total_acc",
+      "revol_bal",
+      "revol_util",
+      "revol_bal_to_income",
+      "emp_length_years",
+      "home_ownership",
+      "verification_status",
+      "purpose"
+    ],
+    "dropped_availability": {
+      "mort_acc": "missing rate moved 15% -> 0% (field availability changed)",
+      "acc_open_past_24mths": "missing rate moved 15% -> 0% (field availability changed)",
+      "bc_util": "missing rate moved 16% -> 1% (field availability changed)",
+      "tot_cur_bal": "missing rate moved 22% -> 0% (field availability changed)"
+    },
+    "scorecard": [
+      "fico",
+      "annual_inc",
+      "loan_to_income",
+      "inq_last_6mths",
+      "dti",
+      "home_ownership",
+      "revol_util"
+    ],
+    "scorecard_dropped": {
+      "credit_history_months": "IV 0.020 below 0.02 (no useful signal)",
+      "purpose": "IV 0.017 below 0.02 (no useful signal)",
+      "emp_length_years": "IV 0.015 below 0.02 (no useful signal)",
+      "revol_bal": "IV 0.014 below 0.02 (no useful signal)",
+      "total_acc": "IV 0.012 below 0.02 (no useful signal)",
+      "revol_bal_to_income": "IV 0.008 below 0.02 (no useful signal)",
+      "loan_amnt": "IV 0.006 below 0.02 (no useful signal)",
+      "pub_rec_bankruptcies": "IV 0.006 below 0.02 (no useful signal)",
+      "mths_since_last_record": "IV 0.002 below 0.02 (no useful signal)",
+      "verification_status": "IV 0.002 below 0.02 (no useful signal)",
+      "mths_since_last_delinq": "IV 0.001 below 0.02 (no useful signal)",
+      "pub_rec": "IV 0.001 below 0.02 (no useful signal)",
+      "delinq_2yrs": "IV 0.001 below 0.02 (no useful signal)",
+      "open_acc": "IV 0.000 below 0.02 (no useful signal)"
+    },
+    "lightgbm": [
+      "loan_amnt",
+      "annual_inc",
+      "loan_to_income",
+      "dti",
+      "fico",
+      "credit_history_months",
+      "inq_last_6mths",
+      "delinq_2yrs",
+      "mths_since_last_delinq",
+      "mths_since_last_record",
+      "pub_rec",
+      "pub_rec_bankruptcies",
+      "open_acc",
+      "total_acc",
+      "revol_bal",
+      "revol_util",
+      "revol_bal_to_income",
+      "emp_length_years",
+      "home_ownership",
+      "verification_status",
+      "purpose"
+    ],
+    "iv": {
+      "fico": 0.13260701608201253,
+      "annual_inc": 0.08922416663419762,
+      "loan_to_income": 0.04007175766418918,
+      "inq_last_6mths": 0.03528132126244768,
+      "dti": 0.03499581979537134,
+      "home_ownership": 0.03237136411884585,
+      "revol_util": 0.028561592791803574,
+      "credit_history_months": 0.01970448370895765,
+      "purpose": 0.01675829695588893,
+      "emp_length_years": 0.014897568442772267,
+      "revol_bal": 0.013518913110243254,
+      "total_acc": 0.012240109991424447,
+      "revol_bal_to_income": 0.00847062749352125,
+      "loan_amnt": 0.005900337454763241,
+      "pub_rec_bankruptcies": 0.005759944648615424,
+      "mths_since_last_record": 0.0024575930864233772,
+      "verification_status": 0.00179058308102731,
+      "mths_since_last_delinq": 0.0014470161315673405,
+      "pub_rec": 0.0011820418738281134,
+      "delinq_2yrs": 0.000895083499564583,
+      "open_acc": 0.00024425587928746426
+    },
+    "blocked_columns": 59
+  },
+  "lightgbm": {
+    "best_iteration": 325,
+    "monotone": {
+      "fico": -1,
+      "dti": 1,
+      "inq_last_6mths": 1,
+      "revol_util": 1,
+      "loan_to_income": 1
+    }
+  },
+  "calibration": {
+    "method": "platt",
+    "slope": 0.9568839072782148,
+    "intercept": -0.0020933229308553597
+  },
+  "metrics": {
+    "train": {
+      "LightGBM": {
+        "n": 247381,
+        "default_rate": 0.12802923425808774,
+        "auc": 0.7123057899243781,
+        "gini": 0.4246115798487562,
+        "ks": 0.307602895108619,
+        "mean_pd": 0.13610730209182284,
+        "brier": 0.10396689344938018,
+        "log_loss": 0.351103200253338,
+        "ece": 0.016385454932402187
+      },
+      "LightGBM (uncalibrated)": {
+        "n": 247381,
+        "default_rate": 0.12802923425808774,
+        "auc": 0.7123057899243781,
+        "gini": 0.4246115798487562,
+        "ks": 0.307602895108619,
+        "mean_pd": 0.12792784280322303,
+        "brier": 0.10390292434507077,
+        "log_loss": 0.35034939326345466,
+        "ece": 0.01327304667610019
+      },
+      "Scorecard": {
+        "n": 247381,
+        "default_rate": 0.12802923425808774,
+        "auc": 0.6440843973120631,
+        "gini": 0.28816879462412626,
+        "ks": 0.2066179336359561,
+        "mean_pd": 0.12793975998296525,
+        "brier": 0.10835826961952072,
+        "log_loss": 0.3678313835982197,
+        "ece": 0.0019063726530146384
+      },
+      "LC sub-grade": {
+        "n": 247381,
+        "default_rate": 0.12802923425808774,
+        "auc": 0.6431656174073381,
+        "gini": 0.28633123481467626,
+        "ks": 0.21108683841885156,
+        "mean_pd": 0.12785374598675245,
+        "brier": 0.10846842252361769,
+        "log_loss": 0.36805314599903227,
+        "ece": 0.0010190411532237742
+      }
+    },
+    "valid": {
+      "LightGBM": {
+        "n": 90615,
+        "default_rate": 0.141256966285935,
+        "auc": 0.6684149384758723,
+        "gini": 0.3368298769517446,
+        "ks": 0.24594436222932597,
+        "mean_pd": 0.14125635699957637,
+        "brier": 0.11619950025970449,
+        "log_loss": 0.3855542953171267,
+        "ece": 0.00575333713228645
+      },
+      "LightGBM (uncalibrated)": {
+        "n": 90615,
+        "default_rate": 0.141256966285935,
+        "auc": 0.6684149384758723,
+        "gini": 0.3368298769517446,
+        "ks": 0.24594436222932597,
+        "mean_pd": 0.13299573961329106,
+        "brier": 0.11629282089026333,
+        "log_loss": 0.3859003268846143,
+        "ece": 0.010157796832212844
+      },
+      "Scorecard": {
+        "n": 90615,
+        "default_rate": 0.141256966285935,
+        "auc": 0.645408134979599,
+        "gini": 0.29081626995919807,
+        "ks": 0.21104762196395294,
+        "mean_pd": 0.13218802816005637,
+        "brier": 0.11753442378712504,
+        "log_loss": 0.39124123663258054,
+        "ece": 0.01023923443386628
+      },
+      "LC sub-grade": {
+        "n": 90615,
+        "default_rate": 0.141256966285935,
+        "auc": 0.6672000292159289,
+        "gini": 0.3344000584318578,
+        "ks": 0.2487715203929191,
+        "mean_pd": 0.1309339559964018,
+        "brier": 0.11651347460262299,
+        "log_loss": 0.38648839296656107,
+        "ece": 0.011290143202421027
+      }
+    },
+    "test": {
+      "LightGBM": {
+        "n": 283026,
+        "default_rate": 0.14886264866125373,
+        "auc": 0.6690405770625689,
+        "gini": 0.33808115412513784,
+        "ks": 0.24536041120650698,
+        "mean_pd": 0.13810280301967293,
+        "brier": 0.12112655550105482,
+        "log_loss": 0.39812218725511683,
+        "ece": 0.011428531882919644,
+        "gini_ci": [
+          0.33273675061550184,
+          0.34347400138432727
+        ]
+      },
+      "LightGBM (uncalibrated)": {
+        "n": 283026,
+        "default_rate": 0.14886264866125373,
+        "auc": 0.6690405770625689,
+        "gini": 0.33808115412513784,
+        "ks": 0.24536041120650698,
+        "mean_pd": 0.1298844409204276,
+        "brier": 0.12139991328317475,
+        "log_loss": 0.3992671239932843,
+        "ece": 0.0189782077408261,
+        "gini_ci": [
+          0.33273675061550184,
+          0.34347400138432727
+        ]
+      },
+      "Scorecard": {
+        "n": 283026,
+        "default_rate": 0.14886264866125373,
+        "auc": 0.6445602043563712,
+        "gini": 0.28912040871274236,
+        "ks": 0.20781668674390125,
+        "mean_pd": 0.12778408359897106,
+        "brier": 0.12305246265447203,
+        "log_loss": 0.4057448792113803,
+        "ece": 0.02139603433963951,
+        "gini_ci": [
+          0.28445721256005535,
+          0.29429546626784797
+        ]
+      },
+      "LC sub-grade": {
+        "n": 283026,
+        "default_rate": 0.14886264866125373,
+        "auc": 0.6786355321880755,
+        "gini": 0.35727106437615097,
+        "ks": 0.2619420392116362,
+        "mean_pd": 0.12540480956795946,
+        "brier": 0.12143715694528218,
+        "log_loss": 0.39829462101282936,
+        "ece": 0.02365750688814934,
+        "gini_ci": [
+          0.35265781293030996,
+          0.3626507307487751
+        ]
+      }
+    }
+  },
+  "leakage_demo": {
+    "columns": [
+      "last_fico_range_high",
+      "last_fico_range_low"
+    ],
+    "test_auc": 0.9394860445179535
+  },
+  "policy": {
+    "loss_params": {
+      "ead_ratio": 0.5778890384733776,
+      "lgd": 0.8950006523000348,
+      "n_defaults": 31672
+    },
+    "cutoff": {
+      "pd_threshold": 0.7044605587764247,
+      "valid_approval_rate": 1.0,
+      "valid_total_pnl": 91223039.45188837
+    },
+    "test": {
+      "approve_all": {
+        "approval_rate": 1.0,
+        "default_rate": 0.14886264866125373,
+        "total_pnl": 230269432.13125515,
+        "return_on_funded": 0.06353485674568048
+      },
+      "model": {
+        "approval_rate": 1.0,
+        "default_rate": 0.14886264866125373,
+        "total_pnl": 230269432.13125515,
+        "return_on_funded": 0.06353485674568048,
+        "defaults_avoided_share": 0.0,
+        "goods_rejected_share": 0.0,
+        "pnl_gain_vs_all": 0.0,
+        "pnl_gain_vs_subgrade": -5.960464477539063e-08
+      },
+      "subgrade_same_rate": {
+        "approval_rate": 1.0,
+        "default_rate": 0.14886264866125373,
+        "total_pnl": 230269432.1312552,
+        "return_on_funded": 0.06353485674568049
+      }
+    },
+    "expected_loss_test": 250023984.5723294,
+    "realised_loss_test": 274011577.24079764
+  },
+  "stability": {
+    "score_psi": {
+      "valid": 0.006067250144440765,
+      "test": 0.0010658423281531052
+    },
+    "score_psi_label": {
+      "valid": "stable",
+      "test": "stable"
+    },
+    "feature_psi": [
+      {
+        "feature": "verification_status",
+        "psi": 0.11534038963029751,
+        "status": "moderate shift"
+      },
+      {
+        "feature": "mths_since_last_record",
+        "psi": 0.09469724623616362,
+        "status": "stable"
+      },
+      {
+        "feature": "dti",
+        "psi": 0.067831608768914,
+        "status": "stable"
+      },
+      {
+        "feature": "inq_last_6mths",
+        "psi": 0.06690228388416891,
+        "status": "stable"
+      },
+      {
+        "feature": "purpose",
+        "psi": 0.04895149693140762,
+        "status": "stable"
+      },
+      {
+        "feature": "pub_rec",
+        "psi": 0.04080824944759631,
+        "status": "stable"
+      },
+      {
+        "feature": "credit_history_months",
+        "psi": 0.03142460184400337,
+        "status": "stable"
+      },
+      {
+        "feature": "pub_rec_bankruptcies",
+        "psi": 0.03053261816366646,
+        "status": "stable"
+      },
+      {
+        "feature": "mths_since_last_delinq",
+        "psi": 0.026097322567856178,
+        "status": "stable"
+      },
+      {
+        "feature": "open_acc",
+        "psi": 0.025861229108080322,
+        "status": "stable"
+      },
+      {
+        "feature": "revol_util",
+        "psi": 0.023839194341144156,
+        "status": "stable"
+      },
+      {
+        "feature": "fico",
+        "psi": 0.023333627695969295,
+        "status": "stable"
+      },
+      {
+        "feature": "emp_length_years",
+        "psi": 0.02163456743598781,
+        "status": "stable"
+      },
+      {
+        "feature": "loan_amnt",
+        "psi": 0.014565379499636277,
+        "status": "stable"
+      },
+      {
+        "feature": "delinq_2yrs",
+        "psi": 0.013646722631909126,
+        "status": "stable"
+      },
+      {
+        "feature": "home_ownership",
+        "psi": 0.008411497703879223,
+        "status": "stable"
+      },
+      {
+        "feature": "revol_bal",
+        "psi": 0.00724564020123068,
+        "status": "stable"
+      },
+      {
+        "feature": "annual_inc",
+        "psi": 0.006594155686744075,
+        "status": "stable"
+      },
+      {
+        "feature": "revol_bal_to_income",
+        "psi": 0.004263927091221394,
+        "status": "stable"
+      },
+      {
+        "feature": "loan_to_income",
+        "psi": 0.002623265765161484,
+        "status": "stable"
+      },
+      {
+        "feature": "total_acc",
+        "psi": 0.002512003435564295,
+        "status": "stable"
+      }
+    ]
+  },
+  "shap_importance": {
+    "fico": 0.32532157995328614,
+    "annual_inc": 0.1636730598205586,
+    "inq_last_6mths": 0.14698472222287357,
+    "loan_to_income": 0.13608906396794407,
+    "dti": 0.1127491402314054,
+    "open_acc": 0.09637217803911186,
+    "purpose": 0.09503552390449206,
+    "revol_util": 0.08788324661252678,
+    "home_ownership": 0.08620060565248444,
+    "mths_since_last_delinq": 0.05924681449648431,
+    "revol_bal_to_income": 0.058947500876245944,
+    "revol_bal": 0.05652018373128413,
+    "total_acc": 0.05184016933983595,
+    "emp_length_years": 0.04936330379950477,
+    "credit_history_months": 0.046363208754793,
+    "loan_amnt": 0.04148723399361665,
+    "mths_since_last_record": 0.03336983713522134,
+    "verification_status": 0.019995497987674752,
+    "pub_rec_bankruptcies": 0.0035113355800494824,
+    "pub_rec": 0.00336113583473472,
+    "delinq_2yrs": 0.0021508738222432303
+  },
+  "lift_test": [
+    {
+      "decile": 1,
+      "count": 28303,
+      "defaults": 8396.0,
+      "mean_pd": 0.2908093862472348,
+      "default_rate": 0.2966469985513903,
+      "cum_share_of_defaults": 0.1992784581790563,
+      "lift": 1.9927564182095747
+    },
+    {
+      "decile": 2,
+      "count": 28302,
+      "defaults": 6565.0,
+      "mean_pd": 0.21180413890853883,
+      "default_rate": 0.2319624054837114,
+      "cum_share_of_defaults": 0.35509826260324695,
+      "lift": 1.5582310779083097
+    },
+    {
+      "decile": 3,
+      "count": 28303,
+      "defaults": 5559.0,
+      "mean_pd": 0.1781915733583137,
+      "default_rate": 0.19641027452920184,
+      "cum_share_of_defaults": 0.48704072913699803,
+      "lift": 1.3194060182023613
+    },
+    {
+      "decile": 4,
+      "count": 28302,
+      "defaults": 5015.0,
+      "mean_pd": 0.15427643645471004,
+      "default_rate": 0.17719595788283513,
+      "cum_share_of_defaults": 0.6060713946643881,
+      "lift": 1.1903318896740553
+    },
+    {
+      "decile": 5,
+      "count": 28303,
+      "defaults": 4249.0,
+      "mean_pd": 0.134642198690008,
+      "default_rate": 0.15012542839981627,
+      "cum_share_of_defaults": 0.7069211050982626,
+      "lift": 1.0084828514736162
+    },
+    {
+      "decile": 6,
+      "count": 28302,
+      "defaults": 3689.0,
+      "mean_pd": 0.11741685334308483,
+      "default_rate": 0.1303441452900855,
+      "cum_share_of_defaults": 0.7944792556726479,
+      "lift": 0.8756000679975254
+    },
+    {
+      "decile": 7,
+      "count": 28303,
+      "defaults": 3115.0,
+      "mean_pd": 0.1013525570049347,
+      "default_rate": 0.11005900434582906,
+      "cum_share_of_defaults": 0.8684135573910566,
+      "lift": 0.7393325682137714
+    },
+    {
+      "decile": 8,
+      "count": 28302,
+      "defaults": 2557.0,
+      "mean_pd": 0.08514510752024416,
+      "default_rate": 0.09034697194544555,
+      "cum_share_of_defaults": 0.9291037691066173,
+      "lift": 0.6069149834290248
+    },
+    {
+      "decile": 9,
+      "count": 28303,
+      "defaults": 1939.0,
+      "mean_pd": 0.06701909129565613,
+      "default_rate": 0.0685086386602127,
+      "cum_share_of_defaults": 0.9751257951200988,
+      "lift": 0.4602137559443027
+    },
+    {
+      "decile": 10,
+      "count": 28303,
+      "defaults": 1048.0,
+      "mean_pd": 0.04037126085823342,
+      "default_rate": 0.037027876903508464,
+      "cum_share_of_defaults": 1.0,
+      "lift": 0.24873853338299598
+    }
+  ],
+  "calibration_test": [
+    {
+      "bin": 1,
+      "count": 28303,
+      "mean_pd": 0.04037126085823342,
+      "default_rate": 0.037027876903508464
+    },
+    {
+      "bin": 2,
+      "count": 28303,
+      "mean_pd": 0.06701909129565613,
+      "default_rate": 0.0685086386602127
+    },
+    {
+      "bin": 3,
+      "count": 28302,
+      "mean_pd": 0.08514510752024416,
+      "default_rate": 0.09034697194544555
+    },
+    {
+      "bin": 4,
+      "count": 28303,
+      "mean_pd": 0.1013525570049347,
+      "default_rate": 0.11005900434582906
+    },
+    {
+      "bin": 5,
+      "count": 28302,
+      "mean_pd": 0.11741685334308483,
+      "default_rate": 0.1303441452900855
+    },
+    {
+      "bin": 6,
+      "count": 28303,
+      "mean_pd": 0.134642198690008,
+      "default_rate": 0.15012542839981627
+    },
+    {
+      "bin": 7,
+      "count": 28302,
+      "mean_pd": 0.15427643645471004,
+      "default_rate": 0.17719595788283513
+    },
+    {
+      "bin": 8,
+      "count": 28303,
+      "mean_pd": 0.1781915733583137,
+      "default_rate": 0.19641027452920184
+    },
+    {
+      "bin": 9,
+      "count": 28302,
+      "mean_pd": 0.21180413890853883,
+      "default_rate": 0.2319624054837114
+    },
+    {
+      "bin": 10,
+      "count": 28303,
+      "mean_pd": 0.2908093862472348,
+      "default_rate": 0.2966469985513903
+    }
+  ],
+  "scorecard_scaling": {
+    "base_score": 600,
+    "base_odds": 50.0,
+    "pdo": 20
+  },
+  "figures": {
+    "vintage": "figures/vintage.png",
+    "roc": "figures/roc.png",
+    "ks": "figures/ks.png",
+    "calibration": "figures/calibration.png",
+    "profit": "figures/profit.png",
+    "psi": "figures/psi.png",
+    "shap": "figures/shap.png",
+    "woe": "figures/woe_bins.png",
+    "score": "figures/score_distribution.png",
+    "leakage": "figures/leakage.png"
+  },
+  "runtime_seconds": 114.8
+}
